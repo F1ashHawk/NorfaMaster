@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Services{% endblock title %}
+{% block content %}
+{% for service in object_list %}
+<div class="card">
+    <div class="card-header">
+        <span class="font-weight-bold">{{ service.title }}</span> &middot;
+        <span class="text-muted">by {{ service.author }} |
+        </span>
+    </div>
+    <div class="card-body">
+        <p>{{ service.body }}|стоимость:{{ service.cost }} руб</p>
+        <a href="#">Edit</a> | <a href="#">Delete</a>
+    </div>
+    <div class="card-footer">
+        {% for comment in service.comments.all %}
+        <p>
+            <span class="font-weight-bold">{{ comment.author }} &middot;</span>
+            {{ comment }}
+        </p>
+        {% endfor %}
+    </div>
+</div>
+<br />
+{% endfor %}
+{% endblock content %}
