@@ -10,7 +10,10 @@
     </div>
     <div class="card-body">
         <p>{{ service.body }}|стоимость:{{ service.cost }} руб</p>
-        <a href="#">Edit</a> | <a href="#">Delete</a>
+        <div>
+            <a href="{% url 'service_edit' service.pk %}">Edit</a> |
+            <a href="{% url 'service_delete' service.pk %}">Delete</a>
+        </div>
     </div>
     <div class="card-footer">
         {% for comment in service.comments.all %}

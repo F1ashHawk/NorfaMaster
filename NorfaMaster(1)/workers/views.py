@@ -1,25 +1,28 @@
+from django.shortcuts import render
+
+# Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied 
 from django.views.generic import ListView, DetailView 
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy 
 
-from .models import Service
+from .models import Worker
 
-class ServicesListView(ListView):
-    model = Service
-    template_name = 'services_list.html'
+class WorkerListView(ListView):
+    model = Worker
+    template_name = 'worker_list.html'
     login_url = 'login' 
 
-class ServiceDetailView(DetailView):
-    model = Service
-    template_name = 'service_detail.html'
+class WorkerDetailView(DetailView):
+    model = Worker
+    template_name = 'worker_detail.html'
     login_url = 'login' 
 
-class ServiceUpdateView(UpdateView): 
-    model = Service
-    fields = ('title','schedule','body','cost')
-    template_name = 'service_edit.html'
+class WorkerUpdateView(UpdateView): 
+    model = Worker
+    fields = ('title','schedule','rating')
+    template_name = 'worker_edit.html'
     login_url = 'login' 
 
     def dispatch(self, request, *args, **kwargs): 
@@ -28,10 +31,10 @@ class ServiceUpdateView(UpdateView):
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
 
-class ServiceDeleteView(DeleteView):    
-    model = Service
-    template_name = 'service_delete.html'
-    success_url = reverse_lazy('service_list')
+class WorkerDeleteView(DeleteView):    
+    model = Worker
+    template_name = 'worker_delete.html'
+    success_url = reverse_lazy('worker_list')
     login_url = 'login' 
     
     def dispatch(self, request, *args, **kwargs): 
@@ -40,10 +43,10 @@ class ServiceDeleteView(DeleteView):
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
 
-class ServiceCreateView(LoginRequiredMixin,CreateView):
-    model = Service
-    template_name = 'service_new.html'
-    fields = ('title','schedule','body','cost')
+class WorkerCreateView(LoginRequiredMixin,CreateView):
+    model = Worker
+    template_name = 'worker_new.html'
+    fields = ('title','schedule','rating')
     login_url = 'login' 
     
     def form_valid(self, form): 

@@ -11,4 +11,5 @@ urlpatterns = [
     path('client_signup/', ClientSignUpView.as_view(), name='signup'),
     path('company_signup/', CompanySignUpView.as_view(), name='company_signup'),
     path('services/', include('services.urls')), 
+    path('workers/', include('workers.urls')), 
 ]
