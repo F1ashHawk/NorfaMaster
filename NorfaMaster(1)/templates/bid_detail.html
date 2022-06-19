@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bid-entry">
+    <h2>{{ bid.service }}</h2>
+    <p>by {{ bid.time }} | {{ bid.phone_number }}</p>
+    <p>{{ bid.adress }}</p>
+    <p>{{ bid.worker }}</p>
+    <p>{{ bid.company }}</p>
+</div>
+{% endif %}
+<p>Back to <a href="{% url 'bid_list' %}">All Services</a>.</p>
+{% endblock content %}

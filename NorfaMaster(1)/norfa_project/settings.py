@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'bids.apps.BidsConfig',
     'users.apps.UsersConfig',
     'workers.apps.WorkersConfig',
     'services.apps.ServicesConfig',
