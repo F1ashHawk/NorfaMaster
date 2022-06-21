@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="service-entry">
+    <h2>{{ object.title }}</h2>
+    <p>by {{ object.author }} |cost: {{ object.cost }}</p>
+    <p>{{ object.schedule }}</p>
+    <p>{{ object.body }}</p>
+</div>
+{% if user.is_company %}
+<p>
+    <a href="{% url 'service_edit' service.pk %}">Edit</a> |
+    <a href="{% url 'service_delete' service.pk %}">Delete</a>
+</p>
+{% endif %}
+<p>Back to <a href="{% url 'services_list' %}">All Services</a>.</p>
+{% endblock content %}
