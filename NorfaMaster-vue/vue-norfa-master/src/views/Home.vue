@@ -7,7 +7,11 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
+a{
+  text-decoration: none;
+  color: #ffffff;
+}
 h2 {
     font-family: 'Montserrat';
     font-style: normal;

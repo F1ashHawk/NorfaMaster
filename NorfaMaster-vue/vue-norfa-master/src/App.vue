@@ -24,10 +24,7 @@ export default {
   list-style: none;
   transition: .5s;
 }
-a{
-  text-decoration: none;
-  color: #ffffff;
-}
+
 
 #app {
     @font-face {

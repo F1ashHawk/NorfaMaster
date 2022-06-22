@@ -25,7 +25,7 @@
     </div>
 </template>
 <script></script>
-<style>
+<style scoped>
 .header{
     background-color: #0073BE;
     font-family: 'Montserrat';
@@ -50,5 +50,9 @@ ul{
     display: grid;
     height: 50px;
     align-content: space-between;
+}
+a{
+  text-decoration: none;
+  color: #ffffff;
 }
 </style>
